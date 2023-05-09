@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+	<Properties>
+		<Property name="basePath">C:\\Users\\Administrador\\Documents\\Transportistas</Property>
+	</Properties>
+
+	<Appenders>
+		<RollingFile name="Transportistas-info"
+			fileName="${basePath}/Log/Transportistas-info.log"
+			filePattern="${basePath}/Log/Transportistas-%d{yyyy-MM-dd}.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+			<LevelRangeFilter minLevel="info" maxLevel="info" onMatch="ACCEPT" onMismatch="DENY"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+		</RollingFile>
+		
+		<RollingFile name="Transportistas-debug"
+			fileName="${basePath}/Log/Transportistas-debug.log"
+			filePattern="${basePath}/Log/Transportistas-%d{yyyy-MM-dd}.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+			<LevelRangeFilter minLevel="debug" maxLevel="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+		</RollingFile>
+		
+		<RollingFile name="Transportistas-error"
+			fileName="${basePath}/Log/Transportistas-error.log"
+			filePattern="${basePath}/Log/Transportistas-%d{yyyy-MM-dd}.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+			<LevelRangeFilter minLevel="error" maxLevel="error" onMatch="ACCEPT" onMismatch="DENY"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Root level="all" additivity="false">
+			<appender-ref ref="Transportistas-info" />
+			<appender-ref ref="Transportistas-debug" />
+			<appender-ref ref="Transportistas-error" />
+		</Root>
+
+	</Loggers>
+</Configuration>
